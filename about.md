@@ -4,12 +4,7 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Hello I'm Arnold Agus. I currently work for Dataprocessors as a software developer in Sydney. 
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new)
+I decided at the beginning of 2015 to start learning how to code with no prior knowledge and was fortunate to find after 6 months work as a software developer. Here are my ramblings on what I have learned and some of the obstacles I have went through in hopes that others who are in a similar position in their journey can use. 
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
