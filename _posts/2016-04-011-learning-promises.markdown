@@ -147,7 +147,7 @@ Below is the full script. I hope this illustrates the problem I faced (and my co
   componentTwo:
    { results: [ 'Everything went fine heres some results' ],
      errors: [ 'Second function call broke' ] } }
-{% highlight %}
+{% endhighlight %}
 
 FullScript:
 
