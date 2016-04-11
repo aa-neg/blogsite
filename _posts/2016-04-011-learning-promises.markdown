@@ -259,16 +259,16 @@ function thirdFunction(callback) {
 
 
 
-<h4>Why did this happen?!</h4>
+Why did this happen?!
 
 Well this is because async runs synchronously whole the promise library invokes an asynchronously. Now look at the below changes (added timesout to everything). When this is called the reference error is thrown as expected. So what I managed to do was in the same cycle was chain the error while the 'then' statements were being invoked. 
 
-<h5>Lesson learned?</h5>
+Lesson learned?
 
 Javascript. . . 
 But will not put an asynchronous loop inside the synchronous async cycle or just somehow learn to code it better :)
 
-Feel free to fork it <a href="https://github.com/aa-neg/nodeAsyncTest"></a> and play around with the problem and implementation of promises. 
+Feel free to fork it https://github.com/aa-neg/nodeAsyncTest and play around with the problem and implementation of promises. 
 
 
 
