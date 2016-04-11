@@ -139,7 +139,6 @@ Now this may seem like quite a large amount of garbage however essentially the s
 
 You can confirm this by commenting out the 'catchThis' console.log. In addition you can experiment by uncommenting the console.log(breakingCall) in manipulateResults within the second function. This from my understanding is the fact that async.series uses a promise chain and the callback is continuing that chain. So when the chain has broken it will seek the next 'catch' clause to spit out its error messages. Hence interestingly the error appears in my artificial error object in the second function rather than in the async series section.
 
-Below is the full script. I hope this illustrates the problem I faced (and my conclusion which may be wrong) but regardless may help as a learning exercise for others to play with the idea of promises using both the async and promise libraries for nodeJS. Please feel free to fork the script from my github https://github.com/aa-neg/nodeAsyncTest 
 
 {% highlight javascript %}
   These are the components
