@@ -272,7 +272,7 @@ Feel free to fork it https://github.com/aa-neg/nodeAsyncTest and play around wit
 
 
 
-{% highlight %}
+{% highlight javascript %}
 
 ReferenceError: catchThis is not defined
     at thirdFunction (C:\code\nodeAsyncTest\nodeAsyncTest.js:116:17)
