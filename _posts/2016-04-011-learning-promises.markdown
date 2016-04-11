@@ -268,7 +268,7 @@ Well this is because async runs synchronously whole the promise library invokes 
 Javascript. . . 
 But will not put an asynchronous loop inside the synchronous async cycle or just somehow learn to code it better :)
 
-
+Feel free to fork it <a href="https://github.com/aa-neg/nodeAsyncTest"></a> and play around with the problem and implementation of promises. 
 
 
 
