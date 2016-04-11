@@ -137,7 +137,7 @@ The interesting part: The error is caught within the second function rather than
 
 Now this may seem like quite a large amount of garbage however essentially the second function contains my implementation of a promise chain. Now the third function which would have been called in the outer async series which contains all of these functions gets caught in the catch statement which I've used in the second function. 
 
-You can confirm this by commenting out the 'catchThis' console.log. In addition you can experiment by uncommenting the console.log(breakingCall) in manipulateResults within the second function. This from my understanding is the fact that async.series uses a promise chain and the callback is continuing that chain. So when the chain has broken it will seek the next 'catch' clause to spit out its error messages. Hence interestingly the error appears in my artificial error object in the second function rather than in the async series section.
+You can confirm this by commenting out the 'catchThis' console.log. In addition you can experiment by uncommenting the console.log(breakingCall) in manipulateResults within the second function. From my understanding during the 'then' blocks the synchronous call of the thirdfunction is called in the same event loop and an error is thrown which is caught with the promise chain's catch. Even though both are unrelated functions.
 
 
 {% highlight javascript %}
