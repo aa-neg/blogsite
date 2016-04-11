@@ -44,7 +44,7 @@ This simply iterates over the first object till all callbacks have been invoked.
 
 The callbacks contain two arguments callback(err, result). Each result or err that is passed back is then appended to the relative objects. If an error is passed back the rest of the async chain will not be called however. For work there are 'soft errors' which I do want to pass back however I still want the chain to continue below is a quick overview of how this is produced. 
 
-Next is the components one of which I've implemented a chain of promises with my incorrect solution:
+Now heres the list of the functions which are invoked in the async series.
 
 {% highlight javascript %}
 
