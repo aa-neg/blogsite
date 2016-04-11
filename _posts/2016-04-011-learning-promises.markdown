@@ -141,6 +141,14 @@ You can confirm this by commenting out the 'catchThis' console.log. In addition 
 
 Below is the full script. I hope this illustrates the problem I faced (and my conclusion which may be wrong) but regardless may help as a learning exercise for others to play with the idea of promises using both the async and promise libraries for nodeJS. Please feel free to fork the script from my github https://github.com/aa-neg/nodeAsyncTest 
 
+{% highlight javascript %}
+  These are the components
+{ componentOne: 'firstFunction was called',
+  componentTwo:
+   { results: [ 'Everything went fine heres some results' ],
+     errors: [ 'Second function call broke' ] } }
+{% highlight %}
+
 FullScript:
 
 {% highlight javascript %}
