@@ -139,9 +139,35 @@ Now this may seem like quite a large amount of garbage however essentially the s
 
 You can confirm this by commenting out the 'catchThis' console.log. In addition you can experiment by uncommenting the console.log(breakingCall) in manipulateResults within the second function. This from my understanding is the fact that async.series uses a promise chain and the callback is continuing that chain. So when the chain has broken it will seek the next 'catch' clause to spit out its error messages. Hence interestingly the error appears in my artificial error object in the second function rather than in the async series section.
 
-
-
 Below is the full script. I hope this illustrates the problem I faced (and my conclusion which may be wrong) but regardless may help as a learning exercise for others to play with the idea of promises using both the async and promise libraries for nodeJS. Please feel free to fork the script from my github https://github.com/aa-neg/nodeAsyncTest 
+
+Why did this happen?!
+
+Well this is because async runs synchronously whole the promise library invokes an asynchronously. Now look at the below changes (added timesout to everything). When this is called the reference error is thrown as expected. So what I managed to do was in the same cycle was chain the error while the 'then' statements were being invoked. 
+
+Lesson learned?
+
+Javascript. . . 
+But will not put an asynchronous loop inside the synchronous async cycle or just somehow learn to code it better :)
+
+
+{% highlight %}
+
+ReferenceError: catchThis is not defined
+    at thirdFunction (C:\code\nodeAsyncTest\nodeAsyncTest.js:116:17)
+    at async.series.componentThree (C:\code\nodeAsyncTest\nodeAsyncTest.js:14:7)
+    at C:\code\nodeAsyncTest\node_modules\async\lib\async.js:718:13
+    at iterate (C:\code\nodeAsyncTest\node_modules\async\lib\async.js:262:13)
+    at C:\code\nodeAsyncTest\node_modules\async\lib\async.js:274:29
+    at C:\code\nodeAsyncTest\node_modules\async\lib\async.js:44:16
+    at C:\code\nodeAsyncTest\node_modules\async\lib\async.js:723:17
+    at C:\code\nodeAsyncTest\node_modules\async\lib\async.js:167:37
+    at null._onTimeout (C:\code\nodeAsyncTest\nodeAsyncTest.js:108:9)
+    at Timer.listOnTimeout (timers.js:92:15)
+
+{% endhighlight %}
+
+New script:
 
 {% highlight javascript %}
 
@@ -175,7 +201,9 @@ try {
 // This first function is to illustrate the async series
 function firstFunction(callback) {
   console.log("this is the first function");
-  callback(null, 'firstFunction was called');
+  setTimeout(function() {
+    callback(null, 'firstFunction was called');
+  }, 0);
 }
 
 
@@ -192,9 +220,10 @@ function secondFunction(callback) {
     .then(cleanResults)
     .catch(function(err){
       console.log("This error occured in the promise chain: " + err);
-      return_object.errors.push('Second function call broke')
-      callback(null, return_object);
-      return;
+      return_object.errors.push('Second function call broke');
+      setTimeout(function() {
+        callback(null, return_object);
+      }, 0);
     });
 
   // connect to some database
@@ -210,7 +239,9 @@ function secondFunction(callback) {
         callback: callback
       }
       console.log(resolve_object);
-      resolve(resolve_object);
+      setTimeout(function(){
+        resolve(resolve_object);
+      }, 0);
     })
   }
 
@@ -223,7 +254,9 @@ function secondFunction(callback) {
         callback: callback
       }
       var results = ['row1', 'row2']
-      resolve(resolve_object);
+      setTimeout(function(){
+        resolve(resolve_object);
+      }, 0);
     })
   }
 
@@ -234,15 +267,19 @@ function secondFunction(callback) {
       console.log(results);
       // this should move into the catch statement
       // console.log(breakingCall);
-      resolve(results)
-    })
+      setTimeout(function(){
+        resolve(results)
+      }, 0);
+    });
   }
 
   // function won't be called simply comment out the above consolelog for this to resolve.
   function cleanResults(results) {
       console.log(results.connection);
       return_object.results.push('Everything went fine heres some results')
-      callback(null, 'some results from the second function');
+      setTimeout(function(){
+        callback(null, 'some results from the second function');
+      }, 0);
   }
 
 }
@@ -250,9 +287,9 @@ function secondFunction(callback) {
 function thirdFunction(callback) {
     console.log("this is the third function");
     console.log(catchThis);
-    callback('error from third function', 'thirdFunction was called');
-    return;
+    setTimeout(function(){
+        callback('error from third function', 'thirdFunction was called');
+    }, 0);
 }
-
 
 {% endhighlight %}
