@@ -11,7 +11,9 @@ The project is written in node with an angularJS front-end. One of the the devs 
 
 {% highlight javascript &}
 describe("some controller", function() {
-  
+ 	 
 });
 
 {& endhighlight &} 
+
+Some of the problems I encountered: 
