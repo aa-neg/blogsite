@@ -65,7 +65,7 @@ console.log(SumList(myList))
 
 {% endhighlight %}
 
-So here we still mutate our list however we have removed the inner scope mutation. Then to take this one step further lets create copies of the list and make each copy 'immutable' before sending it off into the next step.
+So here we still mutate our list however we have removed the inner scope mutation. This advantage may not seem as appraent but what happens if we wanted to compose another function inside this one. Now the overhead of that mutable result scope could creep into other functions inside (we may pass the value of result half way through iteration for example). So then to take this one step further lets create copies of the list and make each copy 'immutable' before sending it off into the next step to avoid this problem.
 
 {% highlight javascript %}
 
@@ -82,7 +82,11 @@ console.log(SumList(myList))
 
 {% endhighlight %}
 
-This is just sudo-code for this immutability concept but now the advantage here is that we didn't change the initial input and now we have this added ability of having a path of states in which we have walked. This was one of the larger advantages I saw when exploring these functional concepts was the idea in which recursion gave the possibility to walk back through the states. So you are able to see along each step what is exactly happening with the concept of immutability. Where with a mutable implementation you then have to add the 'saving' and snapshotting of the states as you arn't sure exactly how you got from a to b. There are disadvantages however which do include performance (recursion vs loops, additional memory for the states etc) although one of my biggest lessons has been to code with the idea of correctness, maintainability and readability in mind first then tweaking for performance later and in my mind this paradigm and concept greatly adheres to the former. 
+This is just sudo-code for this immutability concept but now the advantage here is that we didn't change the initial input and now we have this added ability of having a path of states in which we have walked. This was one of the larger advantages I saw when exploring these functional concepts was the idea in which recursion gave the possibility to walk back through the states. So you are able to see along each step what is exactly happening with the concept of immutability. Where with a mutable implementation you then have to add the 'saving' and snapshotting of the states as you aren't sure exactly how you got from a to b. There are disadvantages however which do include performance (recursion vs loops, additional memory for the states etc) although one of my biggest lessons has been to code with the idea of correctness, maintainability and readability in mind first then tweaking for performance later and in my mind this paradigm and concept greatly adheres to the former. 
+
+<strong>Summary</strong>
+
+Limiting the amount of 'effects' each function performs when it isn't necessary can help avoid pitfalls in the future when composing multiple functions together and nesting these scopes within each-other as when solutions become more complex it can be hard to keep the mental head-space of which variables belong to where and what is actually accessing and mutating what. By developing the functions with this mindset it is clear to know exactly what this function will do, it will not have unexpected effects other than what the name would imply. I found this to be of the huge advantages that the functional paradigm brings to having maintainable code, is you want each piece of your giant puzzle to be predictable so that when all the paddle pop sticks are glued together you know that it will look awesome and work for you. 
 
 Currently at work I have been working the front-end side of things with anuglarJS, however through this exploration of different function types I have been more inclined to try ReactJS + Redux instead due to these advantages and some of their claims about their developer debugging tools.
 
