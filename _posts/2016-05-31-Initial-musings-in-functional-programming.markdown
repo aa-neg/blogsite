@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Initial musings in functional programming"
-date:   2016-05-10 08:40:09 +1100
+date:   2016-05-31 08:40:09 +1100
 categories: Javascript, promises, nodeJS, async
 ---
 
