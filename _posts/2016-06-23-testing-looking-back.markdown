@@ -1,8 +1,7 @@
-
 ---
 layout: post
 title:  "Testing code, looking back"
-date:   2016-04-015 08:40:09 +1100
+date:   2016-04-15 08:40:09 +1100
 categories: unit-testing, javascript
 ---
 
