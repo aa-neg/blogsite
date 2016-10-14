@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  "Simulating 'sevens card game'"
-date:   2016-08-29 08:40:09 +1100
+date:   2016-10-14 08:40:09 +1100
 categories: developer, knowledge, sharing, sevens, simulation
 ---
 
-At work I have been introduced to a new card game 'sevens'. Although this is probably not its real name and possibly not even the official rules however these existing rule set create quite an interesting game. The game has two rounds bidding and then playing and involves 'tricks' such as Euchre.
+At work I have been introduced to a new card game 'sevens'. Although this is probably not its real name and possibly not even the official rules however these existing rule set create quite an interesting game. The game has two rounds bidding and then playing and involves 'tricks' such as Euchre. 
 
 <h4>The rules:</h4>
 
