@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Storing private keys linux"
+title:  "Storing private keys in linux"
 date: 2017-05-06 08:40:09 +1100
 categories: Linux, Security
 ---
@@ -35,7 +35,7 @@ Next change the permissions and ownership of the file such that only root can ev
 	sudo chown root:root ~/Keys/aws_lambda.txt
 	sudo chmod 700 ~/Keys/aws_lambda.txt
 
-	//Now you have been deined
+	//Now you have been denied
 	cat ~/Keys/aws_lambda.txt
 {% endhighlight %}
 
