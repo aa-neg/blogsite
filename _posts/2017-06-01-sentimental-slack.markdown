@@ -5,7 +5,7 @@ date: 2017-05-06 08:40:09 +1100
 categories: slack, aws
 ---
 
-Currently i have been increasingly interested in the cloud infrustructure. As a smaller proof of concept to a larger company sentiment/feedback tool integrated with slack I had made a deployed a 'simple' slack bot. THe bot asked a series of 3 multiple choice questions attempting to gauge the users sentiment across various aspects of their work life.
+Currently i have been increasingly interested in the cloud infrustructure. As a smaller proof of concept to a larger company sentiment/feedback tool integrated with slack I had made and deployed a 'simple' slack bot. The bot asked a series of 3 multiple choice questions attempting to gauge the users sentiment across various aspects of their work life.
 
 "How do you feel about your current project?"
 

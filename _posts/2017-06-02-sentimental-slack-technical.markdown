@@ -5,9 +5,11 @@ date: 2017-06-03 08:40:09 +1100
 categories: aws, lambda, slack, nodejs
 ---
 
-I recently create a slack 'bot' which was scheduled to run 3 times a week asking a series of 3 questions then producing a report at the end. This was all done through a series of aws lambda functions.
+I recently implemented a slack 'bot' which was scheduled to run 3 times a week asking a series of 3 questions, producing a report at the end. This was all done through a series of aws lambda functions. 
 
-Firstly the slack api documentation was pretty good and i found i didn't have any issues simply just curling the endpoint with my token to test out. Aws was also fairly straight forward to set-up and to just get running, I could just in web-browser hack up a nodejs lambda function then click test to run it. Very easy and straight away I was able to create an end to end horizontal from lambda function to message recieved in slack. The next piece was the response event from slack to aws lambda. This was slightly more tedious to set-up as there was the additional component of the api gateway and linking / deploying the slack app into the team channel. However the initial proof of concept was rather simple and i was able to invoke a lambda function to post a message into then hitting the callback event and recieving a response in my cloudwatch logs.
+Firstly the slack api documentation was pretty good and i found i didn't have any issues simply just curling the endpoint with my token to test out. Aws was also fairly straight forward to set-up and to just get running, I could just in web-browser hack up a nodejs lambda function then click test to run . Within an hour I was able to create an end to end horizontal from lambda function to message recieved in slack. 
+
+The next piece was the response event from slack to aws lambda. This was slightly more tedious to set-up as there was the additional component of the api gateway and linking / deploying the slack app into the team channel. However the initial proof of concept was rather simple and i was able to invoke a lambda function to post a message into then hitting the callback event and recieving a response in my cloudwatch logs.
 
 ### Constraints/issues
 
@@ -21,7 +23,7 @@ So there were already some constraints using this technology stack integration.
 
 ### Sharing and maintaining state
 
-Now as each lambda function is stateless to complete my chain of 3 questions each callback contained a callback key. There was essentially a state table i held in s3 which would return (if it exists) the next callback key. After the function would process the response the state was stored in s3 and a response was generated and sent back to slack. If the next callback key existed it simply just reinvoked the chain of post message with the new state to perform.
+Now as each lambda function is stateless to complete my chain of 3 questions each callback contained a callback key. There was essentially a state table i held in s3 which would return (if it exists) the next callback key. The function would process the response determine the next state  stored in s3 and generate a response to slack. If the next callback key existed it simply just reinvoked the chain of post message with the new state to perform.
 
 ### devops
 
