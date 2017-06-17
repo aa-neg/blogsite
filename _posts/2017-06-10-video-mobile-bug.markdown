@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Videos wouldn't work with our app!"
-date: 2017-06-03 08:40:09 +1100
+date: 2017-06-09 08:40:09 +1100
 categories: ionic, devops, 
 ---
 

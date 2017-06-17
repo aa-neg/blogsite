@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Sentimental Slack initial proof of concept"
-date: 2017-05-06 08:40:09 +1100
+date: 2017-06-01 08:40:09 +1100
 categories: slack, aws
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Overview intergrating slack with aws lambda"
-date: 2017-06-03 08:40:09 +1100
+date: 2017-06-05 08:40:09 +1100
 categories: aws, lambda, slack, nodejs
 ---
 
