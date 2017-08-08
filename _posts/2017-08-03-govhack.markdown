@@ -1,0 +1,29 @@
+---
+layout: post
+title:  "Govhack!"
+date: 2017-08-03 08:40:09 +1100
+categories: govhack, aws, 
+---
+
+Over the weekend I had finially attended my first hackathon. Our team of 3 consisted of 2 devs and a BA. 
+
+### Our project
+
+https://www.beefy.space
+
+https://vimeo.com/227589825
+
+### Hackathon formatt
+
+For the australian govhack participants form teams to then target a range of specific prizes which are only annonced on the day (and slowly trickle in after the start). https://2017.hackerspace.govhack.org/awards The event lasted 46 hours and your submissions needed to contain a video and some proof of concept the prizes are said to be announced in october (2 monthsish from the event). 
+
+### Lessons learned
+
+For the first 20 hours we were messing around setting up our infrustructure as the original plan was to host it all in an ec2 instance. However part way through to connect to the slack webhook api your endpoint needed to have a SSL. So we split the efforts with my co-worker setting up the domain + landing page and i quickly pivoted to migrate all of our bot code to the aws lambda infrustruture. This really could have easily been avoided and the next event we should be ready with a solid landing page template and ec2 instance ready to go. 
+
+In addition we spent quite a bit of time thinking about something better we could make and there was quite a bit of time invested in investigating aws lex. To be fair with 6 hours to go we quickly added it in and there was quite a bit of a wow factor with the text to voice for the general public. This should have also been avoided as we should hve been prepared with knowledege and preferrably experience in the buzz word tools available (we even thought about AR). 
+
+Overall it was a great experience and I'll definantly be attending future hackathons. I'd recommend it only if you had a premade team in mind else I don't think it would be of much value even for networking.
+
+
+

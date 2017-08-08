@@ -15,6 +15,19 @@ So here we picked up with a fresh look. Since there were videos that did work we
 
 Now to make sure we found the root cause we wanted to swap the link from https to http and in theory the video should stream as intended. Now this wasn't that easy as we were behind  corporate firewall. We first tried to deploy a new set-up and take out the https requirement from the waf but since it was quite a black-box it quickly turned out to be very fiddly. So to get it working we connected the corporate laptop to our own phones hotspot and ssh tunneled through to the macs which built the apps through ionic. Using a simple http request the videos were streaming to both device as planned!
 
+###Summary
+
+#### Symptoms
+ - Could not play videos within emulators/simulators running both android and ios from macOS
+ - Videos from other sources played perfectly fine
+ - Other sources also contained http and https variants
+ - html5 video player would only request the first 2 bytes and not play
+
+#### Root-cause
+ - macOS and ios will not accept self-signed certificates
+
+ So even through the android emulator since it will go through the macOS network stack the videos would be blocked in our development environment. Hence the initial cause of confusion when the android emulator was not working. When playing directly from an android device however this was working as intended as it was going through the android OS.
+
 Afterwards was simply writing a quick overlay for the video and tiding up some ui elements but a week timeboxed task done in just a day. It was quite a fun task working around the various constraints placed infront of us and it always is great when a root cause is found. 
 
 
