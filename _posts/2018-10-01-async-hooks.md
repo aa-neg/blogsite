@@ -5,9 +5,11 @@ date: 2018-10-01 08:40:09 +1100
 categories: nodejs, async, hooks 
 ---
 
-With nodejs gaining popularity for dealing with microservices the simple conversation comes up on how to do tracing across the various services. Now there is an explicit model where the trace token is passed throughout however this is rather messy and is a very poor separation of concern. In traditional web frameworks where each request is served by a thread an implicit model could be used where the trace token can be set inside the thread local state and passed throughout. 
+With nodejs gaining popularity for dealing with microservices the conversation eventually comes up on how to do tracing across the various services given its event loop model.
 
-Node however does provide [async hooks](https://nodejs.org/api/async_ooks.html) and we have used this concept to perform the same implicit trace token implementation. Now this is experimental but essentially it allows access to the call tree allowing you to figure out who called this function and walk your way up the tree to determine which request this should belong to. 
+Now there is an explicit model where the trace token is passed throughout however this is rather messy and is a very poor separation of concern. In traditional web frameworks where each request is served by a thread an implicit model could be used where the trace token can be set inside the thread local state and passed throughout this is a much cleaner abstraction and work flow.
+
+Node however does provide [async hooks](https://nodejs.org/api/async_ooks.html) and we have used this concept to perform the same implicit trace token implementation. Now this is experimental but essentially it allows access to the call tree allowing you to figure out who called this function and walk your way up the tree to determine which request this should belong to and thus being able to correctly set the trace token.
 
 Below is some sample code demonstrating this concept:
 
