@@ -7,7 +7,7 @@
 
 # Site settings
 title: Learning Simplicity
-email: arnold.agus@gmail.com
+# email: arnold.agus@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Ramblings and learnings of a new developer in hopes to put back into the community
   and share what I have learned. 
